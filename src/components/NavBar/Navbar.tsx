@@ -1,7 +1,5 @@
 import Box from '@mui/material/Box';
 import { Categorie } from './Categorie';
-import coin_exchange from '../../img/coin_exchange.svg';
-import compare from '../../img/compare.svg';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import PriceChangeIcon from '@mui/icons-material/PriceChange';
 

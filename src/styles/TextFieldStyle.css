@@ -1,0 +1,9 @@
+.MuiFilledInput-input {
+  font: initial;
+  font-size: 25px !important;
+  font-weight: 600 !important;
+}
+
+input::-webkit-inner-spin-button {
+  appearance: none;
+}
