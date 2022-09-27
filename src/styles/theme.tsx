@@ -8,8 +8,6 @@ export const theme = createTheme({
       md: 768, // min-width for small screens, laptops
       lg: 1024, // 1024x768
       xl: 1280, // 1280x720
-      xxl: 1440, // 1440x900
-      xxxl: 1850, // 1600x900
     },
   },
 });
