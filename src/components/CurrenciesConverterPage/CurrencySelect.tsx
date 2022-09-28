@@ -3,23 +3,29 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import '../../styles/SelectButtonStyle.css'
+import '../../styles/SelectButtonStyle.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
-export const CurrencySelect = () => {
-  const [age, setAge] = React.useState('');
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
+type CurrencySelectProps = {
+  handleChange: (event: SelectChangeEvent) => void;
+  value: string;
+};
+export const CurrencySelect = ({
+  handleChange,
+  value,
+}: CurrencySelectProps) => {
+  const currencies = useSelector((state:RootState) => state.allCurrencies.currencies);
 
   return (
     <Box>
       <FormControl sx={{ width: '300px' }}>
-        <Select value={age} onChange={handleChange} displayEmpty>
-          <MenuItem value=''>Five</MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+        <Select value={value} onChange={handleChange} displayEmpty>
+          <MenuItem value={'UAH'}>UAH</MenuItem>
+          {currencies.map((elem:any) => (
+            <MenuItem value={elem.ccy} key={elem.ccy}>{elem.ccy}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

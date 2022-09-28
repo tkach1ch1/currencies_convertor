@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { CurrencySelect } from '../components/CurrenciesConverterPage/CurrencySelect';
-import { CurrencyPrice } from '../components/CurrenciesConverterPage/CurrencyPrice';
+import { CurrencyValue } from '../components/CurrenciesConverterPage/CurrencyValue';
 import { ChangeArrow } from '../components/CurrenciesConverterPage/ChangeArrow';
 import '../styles/AnimationEffect.css';
 import {
@@ -12,12 +12,25 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCurrencies } from '../redux/currenciesConverterReducer';
 
+import { useCurrenciesConvertorData } from '../hooks/useCurrenciesConvertorData';
+import { RootState } from '../redux/store';
+
 export const CurrenciesConvertor = () => {
-  const currencies = useSelector((state) => state.allCurrencies.currencies);
+  //Taking data from custom hook
+  const {
+    firstCurrency,
+    secondCurrency,
+    firstCurrencyValue,
+    secondCurrencyValue,
+    handleFirstCurrencyChange,
+    handleSecondCurrencyChange,
+    handleFirstCurrencyValue,
+    handleSecondCurrencyValue,
+  } = useCurrenciesConvertorData();
 
   const dispatch = useDispatch();
-  console.log(currencies);
 
+  //Fetching data from API
   useEffect(() => {
     dispatch(fetchAllCurrencies());
   }, [dispatch]);
@@ -27,15 +40,27 @@ export const CurrenciesConvertor = () => {
       <ConvertorTitle>Currencies converter</ConvertorTitle>
       <MainContainer>
         <SelectionContainer>
-          <CurrencySelect />
-          <CurrencyPrice />
+          <CurrencySelect
+            handleChange={handleFirstCurrencyChange}
+            value={firstCurrency}
+          />
+          <CurrencyValue
+            handleChange={handleFirstCurrencyValue}
+            value={firstCurrencyValue}
+          />
         </SelectionContainer>
 
         <ChangeArrow />
 
         <SelectionContainer>
-          <CurrencySelect />
-          <CurrencyPrice />
+          <CurrencySelect
+            handleChange={handleSecondCurrencyChange}
+            value={secondCurrency}
+          />
+          <CurrencyValue
+            handleChange={handleSecondCurrencyValue}
+            value={secondCurrencyValue}
+          />
         </SelectionContainer>
       </MainContainer>
     </Box>

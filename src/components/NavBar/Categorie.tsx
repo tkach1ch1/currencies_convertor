@@ -2,11 +2,6 @@ import Box from '@mui/material/Box';
 import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-type CategorieProps = {
-  children: ReactNode;
-  link: string;
-};
-
 const defaultStyle = {
   width: '50%',
   textDecoration: 'none',
@@ -22,6 +17,10 @@ const activeStyle = {
   textDecoration: 'none',
 };
 
+type CategorieProps = {
+  children: ReactNode;
+  link: string;
+};
 export const Categorie = ({ children, link }: CategorieProps) => {
   return (
     <NavLink
