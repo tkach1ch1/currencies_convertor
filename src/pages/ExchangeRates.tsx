@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import { ConvertorTitle } from '../styles/CurrenciesConverterPageStyles';
+import { ConvertorTitle } from '../styles/SecondConverterViewStyle';
 import { CurrencyRates } from '../components/CurrenciesListPage/CurrencyRates';
 import { CurrenciesList } from '../components/CurrenciesListPage/CurrenciesList';
 import { SelectChangeEvent } from '@mui/material/Select';

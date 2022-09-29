@@ -5,11 +5,12 @@ export const CurrencyRatesContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  marginTop: '30px',
   marginBottom: '50px',
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '50px', 
+    gap: '30px', 
     marginBottom: '30px'
   },
 });

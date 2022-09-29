@@ -1,17 +1,28 @@
 import { styled } from '@mui/material';
 import { theme } from './theme';
 
-export const ConvertorTitle = styled('h1')({
+export const HeaderContainer = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  marginBottom: '70px',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column',
+    marginBottom: '20px'
+  },
+});
+
+export const ConvertorTitle = styled('div')({
   fontSize: '40px',
   fontWeight: '700',
-  mb: '30px',
+
   [theme.breakpoints.down('md')]: {
     textAlign: 'center',
-    fontSize: '35px'
+    fontSize: '35px',
   },
   [theme.breakpoints.down('sm')]: {
     textAlign: 'center',
-    fontSize: '30px'
+    fontSize: '30px',
   },
 });
 
@@ -26,7 +37,7 @@ export const MainContainer = styled('div')({
   },
 });
 
-export const SelectionContainer = styled('div')({
+export const SecondViewSelectionContainer = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-around',

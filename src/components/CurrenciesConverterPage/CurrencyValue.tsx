@@ -8,6 +8,7 @@ type CurrencyValueProps = {
   handleClick?: () => void;
   value: string;
   readOnly: boolean;
+  width?:string
 };
 
 export const CurrencyValue = ({
@@ -15,11 +16,12 @@ export const CurrencyValue = ({
   handleClick,
   value,
   readOnly,
+  width
 }: CurrencyValueProps) => {
   return (
     <Box>
       <TextField
-        sx={{ width: '300px' }}
+        sx={{ width: width }}
         id='filled-number'
         variant='filled'
         type='number'

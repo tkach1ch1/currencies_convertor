@@ -9,10 +9,12 @@ import { RootState } from '../../redux/store';
 type CurrencySelectProps = {
   handleChange: (event: SelectChangeEvent) => void;
   value: string;
+  width?: string;
 };
 export const CurrencySelect = ({
   handleChange,
   value,
+  width
 }: CurrencySelectProps) => {
   const currencies = useSelector(
     (state: RootState) => state.allCurrencies.currencies
@@ -20,7 +22,7 @@ export const CurrencySelect = ({
 
   return (
     <Box>
-      <FormControl sx={{ width: '300px' }}>
+      <FormControl sx={{ width: width }}>
         <Select value={value} onChange={handleChange} displayEmpty>
           <MenuItem value={'UAH'}>UAH</MenuItem>
           {!!currencies &&

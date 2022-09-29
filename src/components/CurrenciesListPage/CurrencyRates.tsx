@@ -1,4 +1,3 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import { CurrencyRatesSelect } from '../CurrenciesListPage/CurrencyRatesSelect';
 import { useCurrentCurrencyContext } from '../../context/CurrentCurrencyContext';
@@ -10,7 +9,7 @@ export const CurrencyRates = () => {
   return (
     <CurrencyRatesContainer>
       <Box sx={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-        <Box sx={{ fontSize: '18px', fontWeight: '500' }}>
+        <Box sx={{ fontSize: '20px', fontWeight: '500' }}>
           Current currency is
         </Box>
         <Box sx={{ fontSize: '22px', color: '#29ABF8' }}>{currentCurrency}</Box>

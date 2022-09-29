@@ -7,12 +7,15 @@ export const BTCCurrencyList = () => {
 
   return (
     <Box>
-      <ListItem>1 BTC = {(btcPrice * usdPrice).toFixed(2)} UAH</ListItem>
-      <ListItem>1 BTC = {btcPrice.toFixed(2)} USD</ListItem>
+      <ListItem>1 UAH = {(1 / (btcPrice * usdPrice)).toFixed(10)} BTC</ListItem>
+      <ListItem>1 USD = {(1 / btcPrice).toFixed(10)} BTC</ListItem>
       <ListItem>
-        1 BTC = {((btcPrice * usdPrice) / eurPrice).toFixed(2)} EUR
+        1 EUR = {(eurPrice / (btcPrice * usdPrice)).toFixed(10)} BTC
       </ListItem>
-      <ListItem>1 BTC = {((btcPrice * usdPrice) / rurPrice).toFixed(2)} RUR</ListItem>
+      <ListItem>
+        1 RUR = {(rurPrice / (btcPrice * usdPrice) ).toFixed(10)} BTC
+      </ListItem>
     </Box>
+
   );
 };

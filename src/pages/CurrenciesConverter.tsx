@@ -1,22 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import { CurrencySelect } from '../components/CurrenciesConverterPage/CurrencySelect';
-import { CurrencyValue } from '../components/CurrenciesConverterPage/CurrencyValue';
-import { ChangeArrow } from '../components/CurrenciesConverterPage/ChangeArrow';
 import '../styles/AnimationEffect.css';
 import {
   ConvertorTitle,
-  MainContainer,
-  SelectionContainer,
-} from '../styles/CurrenciesConverterPageStyles';
+  HeaderContainer,
+} from '../styles/SecondConverterViewStyle';
 import { useDispatch } from 'react-redux';
 import { fetchAllCurrencies } from '../redux/fetchedCurrenciesReducer';
-
-import { useCurrenciesConvertorData } from '../hooks/useCurrenciesConvertorData';
-import { useConvert } from '../hooks/useConvert';
 import { AppDispatch } from '../redux/store';
+import { SecondConverterView } from '../components/CurrenciesConverterPage/SecondConverterView';
+import { FirstConteinerView } from '../components/CurrenciesConverterPage/FirstConverterView';
+import Switch from '@mui/material/Switch';
 
 export const CurrenciesConvertor = () => {
+  const [toggleView, settoggleView] = useState(false);
+
   const dispatch = useDispatch<AppDispatch>();
 
   //Fetching data from API
@@ -24,57 +22,24 @@ export const CurrenciesConvertor = () => {
     dispatch(fetchAllCurrencies());
   }, [dispatch]);
 
-  //Taking data from custom hook
-  const {
-    firstCurrency,
-    secondCurrency,
-    firstCurrencyValue,
-    handleFirstCurrencyChange,
-    handleSecondCurrencyChange,
-    handleFirstCurrencyValue,
-    handleSecondCurrencyValue,
-    handleClick,
-  } = useCurrenciesConvertorData();
-
-  //Taking converted value from custome hook
-  const { convertedValue } = useConvert();
-
-  let convertedStrValue =
-    convertedValue === 0
-      ? String(convertedValue.toFixed(0))
-      : String(convertedValue.toFixed(2));
 
   return (
-    <Box sx={{ px: '30px', mt: '40px' }}>
-      <ConvertorTitle>Currencies converter</ConvertorTitle>
-      <MainContainer>
-        <SelectionContainer>
-          <CurrencySelect
-            handleChange={handleFirstCurrencyChange}
-            value={firstCurrency}
-          />
-          <CurrencyValue
-            handleChange={handleFirstCurrencyValue}
-            value={firstCurrencyValue}
-            handleClick={handleClick}
-            readOnly={false}
-          />
-        </SelectionContainer>
-
-        <ChangeArrow />
-
-        <SelectionContainer>
-          <CurrencySelect
-            handleChange={handleSecondCurrencyChange}
-            value={secondCurrency}
-          />
-          <CurrencyValue
-            handleChange={handleSecondCurrencyValue}
-            value={convertedStrValue}
-            readOnly={true}
-          />
-        </SelectionContainer>
-      </MainContainer>
+    <Box sx={{ px: '30px', mt: '60px' }}>
+      <HeaderContainer>
+        <ConvertorTitle>Currencies converter</ConvertorTitle>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            pt: '8px',
+          }}
+        >
+          <Box sx={{ fontSize: '20px', fontWeight: '500' }}>Change view</Box>
+          <Switch onChange={() => settoggleView(!toggleView)} />
+        </Box>
+      </HeaderContainer>
+      {toggleView ? <SecondConverterView /> : <FirstConteinerView />}
     </Box>
   );
 };
