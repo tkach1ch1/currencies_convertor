@@ -22,7 +22,7 @@ export const MainContainer = styled('div')({
   alignItems: 'center',
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
-    gap: '2 0px',
+    gap: '20px',
   },
 });
 

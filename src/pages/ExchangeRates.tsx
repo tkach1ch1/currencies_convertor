@@ -7,6 +7,8 @@ import { SelectChangeEvent } from '@mui/material/Select';
 import { CurrentCurrencyContext } from '../context/CurrentCurrencyContext';
 import { fetchAllCurrencies } from '../redux/fetchedCurrenciesReducer';
 import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../redux/store';
+
 
 export const ExchangeRates = () => {
   const [currentCurrency, setCurrentCurrency] = useState('UAH');
@@ -15,7 +17,7 @@ export const ExchangeRates = () => {
     setCurrentCurrency(event.target.value);
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   //Fetching data from API
   useEffect(() => {

@@ -14,9 +14,10 @@ import { fetchAllCurrencies } from '../redux/fetchedCurrenciesReducer';
 
 import { useCurrenciesConvertorData } from '../hooks/useCurrenciesConvertorData';
 import { useConvert } from '../hooks/useConvert';
+import { AppDispatch } from '../redux/store';
 
 export const CurrenciesConvertor = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   //Fetching data from API
   useEffect(() => {
