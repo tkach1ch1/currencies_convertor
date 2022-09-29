@@ -5,10 +5,17 @@ import '../../styles/TextFieldStyle.css';
 
 type CurrencyValueProps = {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleClick?: () => void;
   value: string;
+  readOnly: boolean;
 };
 
-export const CurrencyValue = ({ handleChange, value }: CurrencyValueProps) => {
+export const CurrencyValue = ({
+  handleChange,
+  handleClick,
+  value,
+  readOnly,
+}: CurrencyValueProps) => {
   return (
     <Box>
       <TextField
@@ -16,9 +23,12 @@ export const CurrencyValue = ({ handleChange, value }: CurrencyValueProps) => {
         id='filled-number'
         variant='filled'
         type='number'
+        inputProps={{
+          readOnly: readOnly,
+        }}
         value={value}
         onChange={handleChange}
-        onKeyDown={(event: React.KeyboardEvent) => event.code !== 'e'}
+        onClick={handleClick}
       />
     </Box>
   );

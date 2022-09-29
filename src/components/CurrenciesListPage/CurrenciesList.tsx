@@ -1,13 +1,27 @@
-import React from 'react'
-import Box from '@mui/material/Box';
-import {ListItem} from '../../styles/CurrenciesListPage'
+import { useCurrentCurrencyContext } from '../../context/CurrentCurrencyContext';
+
+import { UAHCurrencyList } from './UAHCurrencyList';
+import { USDCurrencyList } from './USDCurrencyList';
+import { EURCurrencyList } from './EURCurrencyList';
+import { RURCurrencyList } from './RURCurrencyList';
+import { BTCCurrencyList } from './BTCCurrencyList';
+import { CurrenciesListContainer } from '../../styles/CurrenciesListPage';
 
 export const CurrenciesList = () => {
+  const { currentCurrency } = useCurrentCurrencyContext();
+
   return (
-    <Box>
-        <ListItem>
-            1 USD = 29.50 UAH
-        </ListItem>
-    </Box>
-  )
-}
+    <CurrenciesListContainer>
+      {/* Current currency === 'UAH' */}
+      {currentCurrency === 'UAH' && <UAHCurrencyList />}
+      {/* Current currency === 'USD' */}
+      {currentCurrency === 'USD' && <USDCurrencyList />}
+      {/* Current currency === EUR' */}
+      {currentCurrency === 'EUR' && <EURCurrencyList />}
+      {/* Current currency === 'RUR' */}
+      {currentCurrency === 'RUR' && <RURCurrencyList />}
+      {/* Current currency === 'BTC' */}
+      {currentCurrency === 'BTC' && <BTCCurrencyList />}
+    </CurrenciesListContainer>
+  );
+};

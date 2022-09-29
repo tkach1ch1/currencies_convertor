@@ -4,6 +4,10 @@ import AutorenewIcon from '@mui/icons-material/Autorenew';
 export const ChangeArrow = () => {
   const [isActive, setIsActive] = useState(false);
 
+  const onHandleClick = () => {
+    setIsActive(true);
+  };
+
   return (
     <AutorenewIcon
       sx={{
@@ -12,7 +16,7 @@ export const ChangeArrow = () => {
         color: 'rgb(0, 111, 232)',
         '&:hover': { cursor: 'pointer' },
       }}
-      onClick={() => setIsActive(true)}
+      onClick={onHandleClick}
       onAnimationEnd={() => setIsActive(false)}
       className={isActive ? 'animation' : undefined}
     />

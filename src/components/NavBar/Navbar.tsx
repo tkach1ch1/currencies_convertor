@@ -21,7 +21,7 @@ export const Navbar = () => {
         <Box sx={{ width: '25px', height: '25px' }}>
           <PriceChangeIcon />
         </Box>
-        <div>Currencies</div>
+        <div>Exchange rates</div>
       </Categorie>
     </Box>
   );

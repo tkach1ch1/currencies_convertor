@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
 import { SelectChangeEvent } from '@mui/material/Select';
-
 import {
   addFirstCurrency,
   addFirstValue,
@@ -9,6 +7,8 @@ import {
   addSecondValue,
 } from '../redux/convertValuesReducer';
 import { useDispatch } from 'react-redux';
+
+//NOTE: In this custome hook takes place all field validation on CurrencyConverter page
 
 export const useCurrenciesConvertorData = () => {
   const [firstCurrency, setFirstCurrency] = useState('UAH');
@@ -26,10 +26,13 @@ export const useCurrenciesConvertorData = () => {
     setSecondCurrency(event.target.value as string);
   };
 
+  const handleClick = () => {
+    setFirstCurrencyValue('');
+  };
+
   // --- //
 
   //Currency value control
-
   const handleFirstCurrencyValue = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -68,5 +71,6 @@ export const useCurrenciesConvertorData = () => {
     handleSecondCurrencyChange,
     handleFirstCurrencyValue,
     handleSecondCurrencyValue,
+    handleClick,
   };
 };

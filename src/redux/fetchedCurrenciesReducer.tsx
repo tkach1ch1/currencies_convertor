@@ -15,7 +15,7 @@ const initialState:ConvertReducerState = {
   currencies: []
 }
 
-const currenciesConverterReducer = createSlice({
+const fetchedCurrenciesReducer = createSlice({
   name: 'currencies',
   initialState,
   reducers: {},
@@ -36,4 +36,4 @@ export const fetchAllCurrencies = createAsyncThunk(
   }
 );
 
-export default currenciesConverterReducer.reducer;
+export default fetchedCurrenciesReducer.reducer;
