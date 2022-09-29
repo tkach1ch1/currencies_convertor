@@ -7,10 +7,10 @@ export const EURCurrencyList = () => {
 
   return (
     <Box>
-      <ListItem>1 EUR = {eurPrice.toFixed(2)} UAH</ListItem>
-      <ListItem>1 EUR = {(eurPrice / usdPrice).toFixed(3)} USD</ListItem>
-      <ListItem>1 EUR = {(eurPrice / rurPrice).toFixed(2)} RUR</ListItem>
-      <ListItem>1 EUR = {(eurPrice / btcPrice).toFixed(5)} BTC</ListItem>
+      <ListItem>1 UAH = {(1 / eurPrice).toFixed(4)} EUR</ListItem>
+      <ListItem>1 USD = {(usdPrice / eurPrice).toFixed(3)} EUR</ListItem>
+      <ListItem>1 RUR = {(rurPrice / eurPrice).toFixed(2)} EUR</ListItem>
+      <ListItem>1 BTC = {((btcPrice * usdPrice) / eurPrice).toFixed(2)} EUR</ListItem>
     </Box>
   );
 };

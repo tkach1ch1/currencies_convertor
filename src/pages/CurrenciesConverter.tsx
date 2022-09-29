@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import { CurrencySelect } from '../components/CurrenciesConverterPage/CurrencySelect';
 import { CurrencyValue } from '../components/CurrenciesConverterPage/CurrencyValue';
 import { ChangeArrow } from '../components/CurrenciesConverterPage/ChangeArrow';
-import '../styles/AnimationEffect.css';
 import {
   ConvertorTitle,
   MainContainer,
@@ -11,7 +10,6 @@ import {
 } from '../styles/CurrenciesConverterPageStyles';
 import { useDispatch } from 'react-redux';
 import { fetchAllCurrencies } from '../redux/fetchedCurrenciesReducer';
-
 import { useCurrenciesConvertorData } from '../hooks/useCurrenciesConvertorData';
 import { useConvert } from '../hooks/useConvert';
 import { AppDispatch } from '../redux/store';
