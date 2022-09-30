@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useCurrenciesConvertorData } from '../../hooks/useCurrenciesConvertorData';
 import { CurrencySelect } from '../../components/CurrenciesConverterPage/CurrencySelect';
 import { CurrencyValue } from '../../components/CurrenciesConverterPage/CurrencyValue';

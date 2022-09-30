@@ -18,9 +18,6 @@ export const useConvert = () => {
   const firstStringValue = useSelector(
     (state: RootState) => state.convertValues.firstValue
   );
-  const secondStringValue = useSelector(
-    (state: RootState) => state.convertValues.secondValue
-  );
 
   //Received value in string converting to number
   let firstValue = Number(firstStringValue);

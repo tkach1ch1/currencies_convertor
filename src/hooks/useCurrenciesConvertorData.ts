@@ -25,10 +25,6 @@ export const useCurrenciesConvertorData = () => {
     (state: RootState) => state.convertValues.secondValue
   );
 
-  const currencies = useSelector(
-    (state: RootState) => state.allCurrencies.currencies
-  );
-
   const dispatch = useDispatch();
 
   //Currency choose control

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import Box from '@mui/material/Box';
 import {
   ConvertorTitle,
@@ -15,6 +15,7 @@ import { toggleView } from '../redux/converterViewReducer';
 export const CurrenciesConvertor = () => {
   const view = useSelector((state: RootState) => state.toggleView.view);
 
+  //Converter view change
   const onHandleChange = () => {
     dispatch(toggleView(!view));
   };

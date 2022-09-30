@@ -18,7 +18,6 @@ export const FirstConteinerView = () => {
     handleFirstCurrencyChange,
     handleSecondCurrencyChange,
     handleFirstCurrencyValue,
-    handleSecondCurrencyValue,
     handleClick,
   } = useCurrenciesConvertorData();
 
