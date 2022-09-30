@@ -1,6 +1,5 @@
 import { useCurrenciesConvertorData } from '../../hooks/useCurrenciesConvertorData';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import { CurrencySelect } from './CurrencySelect';
 import { useConvert } from '../../hooks/useConvert';
 import {
@@ -69,7 +68,7 @@ export const FirstConteinerView = () => {
             pb: '10px',
           }}
         >
-          {firstCurrencyValue === '' ? 0 : firstCurrencyValue} {firstCurrency} ={' '}
+          {firstCurrency === '' ? 0 : firstCurrencyValue} {firstCurrency} ={' '}
         </Box>
         <Box
           sx={{ color: 'rgb(46, 60, 87)', fontSize: '25px', fontWeight: '500' }}

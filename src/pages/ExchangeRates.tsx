@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { ConvertorTitle } from '../styles/SecondConverterViewStyle';
 import { CurrencyRates } from '../components/CurrenciesListPage/CurrencyRates';
@@ -6,15 +6,17 @@ import { CurrenciesList } from '../components/CurrenciesListPage/CurrenciesList'
 import { SelectChangeEvent } from '@mui/material/Select';
 import { CurrentCurrencyContext } from '../context/CurrentCurrencyContext';
 import { fetchAllCurrencies } from '../redux/fetchedCurrenciesReducer';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../redux/store';
-
+import { AppDispatch, RootState } from '../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCurrentCurrency } from '../redux/exchangeRatesReducer';
 
 export const ExchangeRates = () => {
-  const [currentCurrency, setCurrentCurrency] = useState('UAH');
+  const currentCurrency = useSelector(
+    (state: RootState) => state.exchangeRates.currentCurrency
+  );
 
   const handleChange = (event: SelectChangeEvent) => {
-    setCurrentCurrency(event.target.value);
+    dispatch(addCurrentCurrency(event.target.value));
   };
 
   const dispatch = useDispatch<AppDispatch>();

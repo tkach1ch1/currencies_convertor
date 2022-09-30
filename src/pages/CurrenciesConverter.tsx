@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import '../styles/AnimationEffect.css';
 import {
   ConvertorTitle,
   HeaderContainer,
 } from '../styles/SecondConverterViewStyle';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCurrencies } from '../redux/fetchedCurrenciesReducer';
-import { AppDispatch } from '../redux/store';
+import { AppDispatch, RootState } from '../redux/store';
 import { SecondConverterView } from '../components/CurrenciesConverterPage/SecondConverterView';
 import { FirstConteinerView } from '../components/CurrenciesConverterPage/FirstConverterView';
 import Switch from '@mui/material/Switch';
+import { toggleView } from '../redux/converterViewReducer';
 
 export const CurrenciesConvertor = () => {
-  const [toggleView, settoggleView] = useState(false);
+  const view = useSelector((state: RootState) => state.toggleView.view);
+
+  const onHandleChange = () => {
+    dispatch(toggleView(!view));
+  };
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -21,7 +25,6 @@ export const CurrenciesConvertor = () => {
   useEffect(() => {
     dispatch(fetchAllCurrencies());
   }, [dispatch]);
-
 
   return (
     <Box sx={{ px: '30px', mt: '60px' }}>
@@ -36,10 +39,10 @@ export const CurrenciesConvertor = () => {
           }}
         >
           <Box sx={{ fontSize: '20px', fontWeight: '500' }}>Change view</Box>
-          <Switch onChange={() => settoggleView(!toggleView)} />
+          <Switch onChange={onHandleChange} checked={view ? true : false} />
         </Box>
       </HeaderContainer>
-      {toggleView ? <SecondConverterView /> : <FirstConteinerView />}
+      {view ? <SecondConverterView /> : <FirstConteinerView />}
     </Box>
   );
 };

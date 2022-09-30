@@ -14,25 +14,23 @@ type CurrencySelectProps = {
 export const CurrencySelect = ({
   handleChange,
   value,
-  width
+  width,
 }: CurrencySelectProps) => {
   const currencies = useSelector(
     (state: RootState) => state.allCurrencies.currencies
   );
 
   return (
-    <Box>
-      <FormControl sx={{ width: width }}>
-        <Select value={value} onChange={handleChange} displayEmpty>
-          <MenuItem value={'UAH'}>UAH</MenuItem>
-          {!!currencies &&
-            currencies.map((elem) => (
-              <MenuItem value={String(elem.ccy)} key={elem.ccy}>
-                {elem.ccy}
-              </MenuItem>
-            ))}
-        </Select>
-      </FormControl>
-    </Box>
+    <FormControl sx={{ width: width }}>
+      <Select value={value} onChange={handleChange}>
+        <MenuItem value={'UAH'}>UAH</MenuItem>
+        {!!currencies &&
+          currencies.map((elem) => (
+            <MenuItem value={String(elem.ccy)} key={elem.ccy}>
+              {elem.ccy}
+            </MenuItem>
+          ))}
+      </Select>
+    </FormControl>
   );
 };

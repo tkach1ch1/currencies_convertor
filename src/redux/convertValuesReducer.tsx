@@ -10,8 +10,8 @@ interface convertValuesReducerState {
 const initialState: convertValuesReducerState = {
   firstCurrency: '',
   secondCurrency: '',
-  firstValue: '',
-  secondValue: '',
+  firstValue: '0',
+  secondValue: '0',
 };
 
 const convertValuesReducer = createSlice({

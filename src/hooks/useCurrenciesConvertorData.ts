@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { SelectChangeEvent } from '@mui/material/Select';
 import {
   addFirstCurrency,
@@ -6,28 +6,42 @@ import {
   addSecondCurrency,
   addSecondValue,
 } from '../redux/convertValuesReducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 
 //NOTE: In this custome hook takes place all field validation on CurrencyConverter page
 
 export const useCurrenciesConvertorData = () => {
-  const [firstCurrency, setFirstCurrency] = useState('UAH');
-  const [secondCurrency, setSecondCurrency] = useState('UAH');
+  const firstCurrency = useSelector(
+    (state: RootState) => state.convertValues.firstCurrency
+  );
+  const secondCurrency = useSelector(
+    (state: RootState) => state.convertValues.secondCurrency
+  );
+  const firstCurrencyValue = useSelector(
+    (state: RootState) => state.convertValues.firstValue
+  );
+  const secondCurrencyValue = useSelector(
+    (state: RootState) => state.convertValues.secondValue
+  );
 
-  const [firstCurrencyValue, setFirstCurrencyValue] = useState('0');
-  const [secondCurrencyValue, setSecondCurrencyValue] = useState('0');
+  const currencies = useSelector(
+    (state: RootState) => state.allCurrencies.currencies
+  );
+
+  const dispatch = useDispatch();
 
   //Currency choose control
   const handleFirstCurrencyChange = (event: SelectChangeEvent) => {
-    setFirstCurrency(event.target.value as string);
+    dispatch(addFirstCurrency(event.target.value));
   };
 
   const handleSecondCurrencyChange = (event: SelectChangeEvent) => {
-    setSecondCurrency(event.target.value as string);
+    dispatch(addSecondCurrency(event.target.value));
   };
 
   const handleClick = () => {
-    setFirstCurrencyValue('');
+    dispatch(addFirstValue(''));
   };
 
   // --- //
@@ -36,31 +50,15 @@ export const useCurrenciesConvertorData = () => {
   const handleFirstCurrencyValue = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setFirstCurrencyValue(event.target.value as string);
+    dispatch(addFirstValue(event.target.value as string));
   };
   const handleSecondCurrencyValue = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setSecondCurrencyValue(event.target.value as string);
+    dispatch(addSecondValue(event.target.value as string));
   };
 
   // --- //
-
-  const dispatch = useDispatch();
-
-  //Sending all values to redux store
-  useEffect(() => {
-    dispatch(addFirstCurrency(firstCurrency));
-    dispatch(addSecondCurrency(secondCurrency));
-    dispatch(addFirstValue(firstCurrencyValue));
-    dispatch(addSecondValue(secondCurrencyValue));
-  }, [
-    dispatch,
-    firstCurrency,
-    secondCurrency,
-    firstCurrencyValue,
-    secondCurrencyValue,
-  ]);
 
   return {
     firstCurrency,

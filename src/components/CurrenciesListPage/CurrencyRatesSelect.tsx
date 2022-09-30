@@ -1,4 +1,3 @@
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -11,7 +10,7 @@ export const CurrencyRatesSelect = () => {
     (state: RootState) => state.allCurrencies.currencies
   );
 
-  const { currentCurrency, handleChange } = useCurrentCurrencyContext();
+  const { handleChange } = useCurrentCurrencyContext();
 
   return (
     <FormControl variant='standard' sx={{ width: '250px', mb: '10px' }}>
@@ -22,7 +21,7 @@ export const CurrencyRatesSelect = () => {
             return <em>Choose currency</em>;
           }
         }}
-        defaultValue={'Choose currency'}
+        defaultValue={'UAH'}
       >
         <MenuItem value={'UAH'}>UAH</MenuItem>
         {!!currencies &&

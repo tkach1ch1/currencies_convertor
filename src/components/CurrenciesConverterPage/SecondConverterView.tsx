@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useCurrenciesConvertorData } from '../../hooks/useCurrenciesConvertorData';
 import { CurrencySelect } from '../../components/CurrenciesConverterPage/CurrencySelect';
 import { CurrencyValue } from '../../components/CurrenciesConverterPage/CurrencyValue';
@@ -26,6 +27,7 @@ export const SecondConverterView = () => {
     handleSecondCurrencyValue,
     handleClick,
   } = useCurrenciesConvertorData();
+
   return (
     <MainContainer>
       <SecondViewSelectionContainer>
