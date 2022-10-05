@@ -4,14 +4,12 @@ import TextField from '@mui/material/TextField';
 
 export const FirstViewMainContainer = styled('div')({
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'space-around',
   alignItems: 'center',
+  gap: '20px',
   marginTop: '40px',
-  marginBottom: '40px',
-  [theme.breakpoints.down('md')]: {
-    flexDirection: 'column',
-    gap: '60px',
-  },
+  marginBottom: '60px',
 });
 
 export const FirstViewSelectionContainer = styled('div')({
@@ -34,9 +32,13 @@ export const StyledTextField = styled(TextField)({
 });
 
 export const ResultContainer = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
   padding: '0 30px',
   [theme.breakpoints.down('md')]: {
-    padding: '0',
+    flexDirection: 'column',
+    gap: '30px',
     textAlign: 'center',
   },
 });

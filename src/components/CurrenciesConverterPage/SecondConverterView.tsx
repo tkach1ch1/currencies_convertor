@@ -1,4 +1,4 @@
-import { useCurrenciesConvertorData } from '../../hooks/useCurrenciesConvertorData';
+import { useSecondViewCurrenciesConvertorData } from '../../hooks/useSecondViewCurrenciesConvertoData';
 import { CurrencySelect } from '../../components/CurrenciesConverterPage/CurrencySelect';
 import { CurrencyValue } from '../../components/CurrenciesConverterPage/CurrencyValue';
 import { ChangeArrow } from '../../components/CurrenciesConverterPage/ChangeArrow';
@@ -15,7 +15,7 @@ export const SecondConverterView = () => {
       ? String(convertedValue.toFixed(0))
       : String(convertedValue.toFixed(2));
 
-  //Taking data from custom hook
+  //Taking data from custome hook
   const {
     firstCurrency,
     secondCurrency,
@@ -25,7 +25,7 @@ export const SecondConverterView = () => {
     handleFirstCurrencyValue,
     handleSecondCurrencyValue,
     handleClick,
-  } = useCurrenciesConvertorData();
+  } = useSecondViewCurrenciesConvertorData();
 
   return (
     <MainContainer>

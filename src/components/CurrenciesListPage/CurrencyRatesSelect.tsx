@@ -10,17 +10,15 @@ export const CurrencyRatesSelect = () => {
     (state: RootState) => state.allCurrencies.currencies
   );
 
+  const { currentCurrency } = useCurrentCurrencyContext();
+
   const { handleChange } = useCurrentCurrencyContext();
 
   return (
-    <FormControl variant='standard' sx={{ width: '250px', mb: '10px' }}>
+    <FormControl variant='standard' sx={{ width: '80px', pt: '3px' }}>
       <Select
         onChange={handleChange}
-        renderValue={(selected) => {
-          if (selected) {
-            return <em>Choose currency</em>;
-          }
-        }}
+        value={currentCurrency}
         defaultValue={'UAH'}
       >
         <MenuItem value={'UAH'}>UAH</MenuItem>

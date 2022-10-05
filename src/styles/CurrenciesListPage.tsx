@@ -5,8 +5,8 @@ export const CurrencyRatesContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginTop: '30px',
-  marginBottom: '50px',
+  marginTop: '20px',
+  marginBottom: '30px',
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
     alignItems: 'center',

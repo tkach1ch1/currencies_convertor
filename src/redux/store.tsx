@@ -2,7 +2,8 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import fetchedCurrenciesReducer from './fetchedCurrenciesReducer';
 import convertValuesReducer from './convertValuesReducer';
 import exchangeRatesReducer from './exchangeRatesReducer';
-import converterViewReducer from './converterViewReducer'
+import converterViewReducer from './converterViewReducer';
+import showResultReducer from './showResultReducer';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -11,12 +12,13 @@ const reducers = combineReducers({
   convertValues: convertValuesReducer,
   exchangeRates: exchangeRatesReducer,
   toggleView: converterViewReducer,
+  showResult: showResultReducer,
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['convertValues', 'exchange', 'toggleView'],
+  whitelist: ['convertValues', 'exchangeRates', 'toggleView', 'showResult'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

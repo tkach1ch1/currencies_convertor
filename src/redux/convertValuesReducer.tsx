@@ -5,13 +5,15 @@ interface convertValuesReducerState {
   secondCurrency: string;
   firstValue: string;
   secondValue: string;
+  firstViewInput: string;
 }
 
 const initialState: convertValuesReducerState = {
-  firstCurrency: '',
-  secondCurrency: '',
+  firstCurrency: 'UAH',
+  secondCurrency: 'UAH',
   firstValue: '0',
   secondValue: '0',
+  firstViewInput: '',
 };
 
 const convertValuesReducer = createSlice({
@@ -30,6 +32,9 @@ const convertValuesReducer = createSlice({
     addSecondValue: (state, action) => {
       state.secondValue = action.payload;
     },
+    addFirstViewInput: (state, action) => {
+      state.firstViewInput = action.payload;
+    },
   },
 });
 
@@ -38,6 +43,7 @@ export const {
   addSecondCurrency,
   addFirstValue,
   addSecondValue,
+  addFirstViewInput,
 } = convertValuesReducer.actions;
 
 export default convertValuesReducer.reducer;

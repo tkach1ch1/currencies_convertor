@@ -33,7 +33,7 @@ export const MainContainer = styled('div')({
   alignItems: 'center',
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
-    gap: '20px',
+    gap: '5x',
   },
 });
 

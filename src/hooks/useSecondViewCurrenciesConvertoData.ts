@@ -11,17 +11,17 @@ import { RootState } from '../redux/store';
 
 //NOTE: In this custome hook takes place all field validation on CurrencyConverter page
 
-export const useCurrenciesConvertorData = () => {
-  const firstCurrency = useSelector(
+export const useSecondViewCurrenciesConvertorData = () => {
+  let firstCurrency = useSelector(
     (state: RootState) => state.convertValues.firstCurrency
   );
-  const secondCurrency = useSelector(
+  let secondCurrency = useSelector(
     (state: RootState) => state.convertValues.secondCurrency
   );
-  const firstCurrencyValue = useSelector(
+  let firstCurrencyValue = useSelector(
     (state: RootState) => state.convertValues.firstValue
   );
-  const secondCurrencyValue = useSelector(
+  let secondCurrencyValue = useSelector(
     (state: RootState) => state.convertValues.secondValue
   );
 
@@ -36,22 +36,25 @@ export const useCurrenciesConvertorData = () => {
     dispatch(addSecondCurrency(event.target.value));
   };
 
-  const handleClick = () => {
-    dispatch(addFirstValue(''));
-  };
-
   // --- //
 
   //Currency value control
   const handleFirstCurrencyValue = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    dispatch(addFirstValue(event.target.value as string));
+    if (event.target.value === '') {
+      dispatch(addFirstValue('0'));
+    } else dispatch(addFirstValue(event.target.value as string));
+    
   };
   const handleSecondCurrencyValue = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     dispatch(addSecondValue(event.target.value as string));
+  };
+
+  const handleClick = () => {
+    if (firstCurrencyValue === '0') dispatch(addFirstValue(''));
   };
 
   // --- //
