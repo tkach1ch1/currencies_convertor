@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addFirstCurrency,
@@ -8,7 +8,6 @@ import {
 } from '../redux/convertValuesReducer';
 import { showResult } from '../redux/showResultReducer';
 import { RootState } from '../redux/store';
-import { useSecondViewCurrenciesConvertorData } from './useSecondViewCurrenciesConvertoData';
 
 export const useFirstViewCurreciesConvertorData = () => {
   const input = useSelector(

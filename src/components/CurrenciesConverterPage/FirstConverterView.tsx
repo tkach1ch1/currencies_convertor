@@ -1,11 +1,8 @@
 import Box from '@mui/material/Box';
-import { CurrencySelect } from './CurrencySelect';
 import { useConvert } from '../../hooks/useConvert';
 import {
   FirstViewMainContainer,
-  FirstViewSelectionContainer,
   ResultContainer,
-  StyledTextField,
 } from '../../styles/FirstConverterViewStyle';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
@@ -14,10 +11,6 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
 export const FirstConteinerView = () => {
-  //Taking data from custom hook
-  const { handleInputChange, handleConvertButtonClick, result } =
-    useFirstViewCurreciesConvertorData();
-
   const firstCurrency = useSelector(
     (state: RootState) => state.convertValues.firstCurrency
   );
@@ -30,6 +23,10 @@ export const FirstConteinerView = () => {
   const input = useSelector(
     (state: RootState) => state.convertValues.firstViewInput
   );
+
+  //Taking data from custom hook
+  const { handleInputChange, handleConvertButtonClick, result } =
+    useFirstViewCurreciesConvertorData();
 
   //Taking converted value from custome hook
   const { convertedValue } = useConvert();
