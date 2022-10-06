@@ -22,7 +22,7 @@ export const useFirstViewCurreciesConvertorData = () => {
     dispatch(addFirstViewInput(event.target.value as string));
   };
 
-  const inputArray = input.split(' ');
+  const inputArray = input && input.split(' ');
 
   let firstCurrencyValue = inputArray[0] && inputArray[0];
   let firstCurrency = inputArray[1] && inputArray[1].toUpperCase();
