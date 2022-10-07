@@ -33,7 +33,13 @@ export const CurrenciesConvertor = () => {
       <HeaderContainer>
         <ConvertorTitle>Currencies converter</ConvertorTitle>
         <Tooltip title='Change converter view'>
-          <Switch onChange={onHandleChange} checked={view ? true : false} sx={{mr: '20px'}}/>
+          <Box>
+            <Switch
+              onChange={onHandleChange}
+              checked={view ? true : false}
+              sx={{ mr: '20px' }}
+            />
+          </Box>
         </Tooltip>
       </HeaderContainer>
       {view ? <SecondConverterView /> : <FirstConteinerView />}
