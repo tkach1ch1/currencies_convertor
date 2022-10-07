@@ -5,18 +5,19 @@ export const CurrencyRatesContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  gap: '10px',
   marginTop: '20px',
   marginBottom: '30px',
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '30px', 
     marginBottom: '30px'
   },
 });
 
 export const CurrenciesListContainer = styled('div')({
   display: 'flex',
+  lineHeight: '2',
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
     alignItems: 'center',

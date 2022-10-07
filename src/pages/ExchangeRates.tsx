@@ -30,8 +30,10 @@ export const ExchangeRates = () => {
     <CurrentCurrencyContext.Provider value={{ currentCurrency, handleChange }}>
       <Box sx={{ px: '30px', mt: '40px' }}>
         <ConvertorTitle>Сurrent exchange rates</ConvertorTitle>
-        <CurrencyRates />
-        <CurrenciesList />
+        <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <CurrencyRates />
+          <CurrenciesList />
+        </Box>
       </Box>
     </CurrentCurrencyContext.Provider>
   );

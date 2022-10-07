@@ -1,5 +1,15 @@
 .MuiInputBase-input {
-    font-size: 20px !important;
-    display: flex !important;
-    align-items: center !important;
+  font-size: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.MuiSelect-select {
+  font-size: 25px !important;
+  font-weight: 500;
+  color: rgb(0, 111, 232)
+}
+
+.css-a3l6o-MuiInputBase-root-MuiInput-root-MuiSelect-root:before {
+  border: none !important;
 }

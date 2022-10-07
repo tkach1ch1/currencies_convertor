@@ -3,7 +3,7 @@ import { theme } from './theme';
 
 export const HeaderContainer = styled('div')({
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
   alignItems: 'center',
   marginBottom: '70px',
   [theme.breakpoints.down('md')]: {
@@ -22,7 +22,8 @@ export const ConvertorTitle = styled('div')({
   },
   [theme.breakpoints.down('sm')]: {
     textAlign: 'center',
-    fontSize: '30px',
+    fontSize: '25px',
+    marginTop: '-10px'
   },
 });
 

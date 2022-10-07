@@ -11,6 +11,8 @@ import { SecondConverterView } from '../components/CurrenciesConverterPage/Secon
 import { FirstConteinerView } from '../components/CurrenciesConverterPage/FirstConverterView';
 import Switch from '@mui/material/Switch';
 import { toggleView } from '../redux/converterViewReducer';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import Tooltip from '@mui/material/Tooltip';
 
 export const CurrenciesConvertor = () => {
   const view = useSelector((state: RootState) => state.toggleView.view);
@@ -28,20 +30,22 @@ export const CurrenciesConvertor = () => {
   }, [dispatch]);
 
   return (
-    <Box sx={{ px: '30px', mt: '60px' }}>
+    <Box sx={{ px: '30px', mt: '40px' }}>
       <HeaderContainer>
         <ConvertorTitle>Currencies converter</ConvertorTitle>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            pt: '8px',
-          }}
-        >
-          <Box sx={{ fontSize: '20px', fontWeight: '500' }}>Change view</Box>
-          <Switch onChange={onHandleChange} checked={view ? true : false} />
-        </Box>
+        <Tooltip title='Change converter view'>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              pt: '8px',
+            }}
+          >
+            <Switch onChange={onHandleChange} checked={view ? true : false} />
+            <RemoveRedEyeIcon sx={{ width: '30px', height: '30px' }} />
+          </Box>
+        </Tooltip>
       </HeaderContainer>
       {view ? <SecondConverterView /> : <FirstConteinerView />}
     </Box>
