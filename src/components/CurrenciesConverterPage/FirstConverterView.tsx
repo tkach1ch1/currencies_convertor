@@ -25,15 +25,16 @@ export const FirstConteinerView = () => {
   );
 
   //Taking data from custom hook
-  const { handleInputChange, handleConvertButtonClick, result, inputError } =
-    useFirstViewCurreciesConvertorData();
-
+  const {
+    handleInputChange,
+    handleConvertButtonClick,
+    result,
+    inputError,
+    handleConvertOnEnterButton,
+  } = useFirstViewCurreciesConvertorData();
 
   //Taking converted value from custome hook
   const { convertedValue } = useConvert();
-
-  console.log()
-
 
   let convertedStrValue =
     convertedValue === 0
@@ -41,9 +42,13 @@ export const FirstConteinerView = () => {
       : String(convertedValue.toFixed(2));
 
   return (
-    <Box>
+    <Box onKeyDown={handleConvertOnEnterButton}>
       <FirstViewMainContainer>
-        {inputError && <Box sx={{fontWeight: '500', color: 'red'}}>Please put a valid input, see example below</Box>}
+        {inputError && (
+          <Box sx={{ fontWeight: '500', color: 'red' }}>
+            Please put a valid input, see example below
+          </Box>
+        )}
         <Input
           placeholder='Convert here'
           fullWidth={true}
@@ -61,7 +66,7 @@ export const FirstConteinerView = () => {
           <Box>
             <Box
               sx={{
-                color: 'rgb(92, 102, 123)', 
+                color: 'rgb(92, 102, 123)',
                 fontSize: '20px',
                 fontWeight: '500',
                 pb: '10px',

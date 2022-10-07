@@ -7,8 +7,7 @@ export const HeaderContainer = styled('div')({
   alignItems: 'center',
   marginBottom: '70px',
   [theme.breakpoints.down('md')]: {
-    flexDirection: 'column',
-    marginBottom: '20px'
+    marginBottom: '20px',
   },
 });
 
@@ -23,7 +22,7 @@ export const ConvertorTitle = styled('div')({
   [theme.breakpoints.down('sm')]: {
     textAlign: 'center',
     fontSize: '25px',
-    marginTop: '-10px'
+    marginTop: '-10px',
   },
 });
 

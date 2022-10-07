@@ -42,10 +42,31 @@ export const useFirstViewCurreciesConvertorData = () => {
     }
   };
 
+  const handleConvertOnEnterButton = (event: React.KeyboardEvent) => {
+    setInputError(false);
+
+    if (
+      event.key === 'Enter' &&
+      inputArray.length === 4 &&
+      !isNaN(Number(firstCurrencyValue))
+    ) {
+      dispatch(addFirstValue(firstCurrencyValue));
+      dispatch(addFirstCurrency(firstCurrency));
+      dispatch(addSecondCurrency(secondCurrency));
+      dispatch(showResult(true));
+    } else if (
+      event.key === 'Enter' &&
+      (inputArray.length > 4 || isNaN(Number(firstCurrencyValue)))
+    ) {
+      setInputError(true);
+    }
+  };
+
   return {
     handleInputChange,
     handleConvertButtonClick,
     result,
     inputError,
+    handleConvertOnEnterButton,
   };
 };

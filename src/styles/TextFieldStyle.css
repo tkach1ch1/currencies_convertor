@@ -7,3 +7,8 @@
 input::-webkit-inner-spin-button {
   appearance: none;
 }
+
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  padding: 0 !important
+}

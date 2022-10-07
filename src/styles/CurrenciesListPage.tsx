@@ -16,7 +16,9 @@ export const CurrencyRatesContainer = styled('div')({
 });
 
 export const CurrenciesListContainer = styled('div')({
+  width: '400px',
   display: 'flex',
+  paddingLeft: '55px',
   lineHeight: '2',
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
